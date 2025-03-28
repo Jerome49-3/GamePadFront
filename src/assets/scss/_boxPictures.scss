@@ -1,0 +1,13 @@
+.boxPictures {
+  @include flexStart;
+  gap: 20px;
+  color: #000000;
+  width: 100%;
+
+  & label,
+  & div {
+    background-color: $text;
+    padding: 8px;
+    border-radius: 5px;
+  }
+}

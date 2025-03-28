@@ -1,0 +1,64 @@
+.boxCommentMongoDb {
+  width: 100%;
+  @include flexColCenter;
+  gap: 20px;
+
+  .boxComment {
+    color: $text;
+    padding: 20px;
+    gap: 10px;
+    @include flexColCenter;
+    width: 90%;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    background-color: $backgrdInput;
+
+    &__top {
+      @include flexColStart;
+      width: 100%;
+      padding-left: 5px;
+      gap: 10px;
+
+      &__title {
+        border-bottom: 2px solid $text;
+        width: fit-content;
+      }
+
+    }
+
+    &__bottom {
+      @include flexBetween;
+      width: 100%;
+
+      .title {
+        width: 100%;
+      }
+
+      .left {
+        @include flexStart;
+        gap: 10px;
+
+        .boxAvatar {
+          & img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+          }
+        }
+      }
+
+      .right {}
+    }
+  }
+
+  .boxComment:last-child {
+    margin-bottom: 20px;
+  }
+
+}
+
+@media (min-width: 768px) {
+  .boxComment {
+    width: 50% !important;
+  }
+}

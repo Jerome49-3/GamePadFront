@@ -1,0 +1,46 @@
+footer {
+  width: 100%;
+
+  .wrapper {
+    padding: 20px 0 20px 0;
+    width: 100%;
+
+    .boxLinkFooter {
+      @include flexColCenter;
+
+      & li {
+        width: calc(100% / 2);
+        text-align: center;
+      }
+
+      & li:first-child {
+        & a {
+          font-weight: 800;
+        }
+      }
+
+      & li:last-child {
+        & a {
+          font-weight: 800;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .boxLinkFooter {
+    @include flexBetween;
+    width: 100% !important;
+    flex-direction: row !important;
+
+    & li {
+      text-align: justify !important;
+    }
+
+    & li:last-child {
+      @include flexEnd;
+      gap: 5px;
+    }
+  }
+}

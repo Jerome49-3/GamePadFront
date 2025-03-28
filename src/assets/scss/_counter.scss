@@ -1,0 +1,20 @@
+.boxCounter {
+  @include flexCenter;
+
+  &>div {
+    @include flexCenter;
+    width: 25px;
+  }
+
+  .grey {
+    color: grey;
+  }
+
+  .red {
+    color: red;
+  }
+
+  .green {
+    color: green;
+  }
+}

@@ -1,0 +1,167 @@
+header {
+  border-bottom: 2px solid crimson;
+  padding: 0 10px 0 10px;
+
+  .wrapper {
+    @include flexBetween;
+
+    // border: 2px solid green;
+    .logo {
+      @include flexStart;
+      gap: 5px;
+      padding: 0 0 0 10px;
+      margin-left: -10px;
+
+      & img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+      }
+
+      & p {
+        @include pressStart2p;
+        letter-spacing: 0.25rem;
+        order: 2;
+        color: $text;
+      }
+    }
+
+    nav {
+      @include flexStart;
+      width: 60%;
+
+      .boxSearch {
+        background-color: #ffffff;
+        @include flexCenter;
+        border-radius: 15px;
+        padding-left: 8px;
+        gap: 5px;
+        // border: 2px solid blue;
+        width: 100%;
+        margin-left: -20px;
+
+        input {
+          width: 100%;
+          border-top-right-radius: 15px;
+          border-bottom-right-radius: 15px;
+          padding: none;
+          border: none;
+          caret-color: #000;
+          background-color: transparent !important
+        }
+
+        & svg {
+          color: $backgrdInput;
+        }
+      }
+
+      ul {
+        @include flexEnd;
+        width: 100%;
+
+        li {
+          @include flexCenter;
+          margin-top: 25px;
+
+          a {
+            @include flexColCenter;
+
+            .infobulle {
+              background-color: $text;
+              color: $backgrdInput;
+              text-align: center;
+              padding: 1.5px;
+              border-radius: 5px;
+              position: relative;
+              display: inline-block;
+              visibility: hidden;
+              margin-top: 5px;
+            }
+
+            .iconFav,
+            .iconLogin {
+              color: $iconHeader;
+            }
+          }
+
+          &:hover .infobulle {
+            visibility: visible;
+          }
+
+          .buttonSignup,
+          .buttonLogout,
+          .buttonLogin {
+            background-color: transparent;
+            border: none;
+            @include flexColCenter;
+            cursor: pointer;
+
+            .infobulle {
+              background-color: $text;
+              color: $backgrdInput;
+              text-align: center;
+              padding: 1.5px;
+              border-radius: 5px;
+              position: relative;
+              display: inline-block;
+              visibility: hidden;
+              margin-top: 5px;
+            }
+
+            .iconSignup,
+            .iconLogout {
+              color: $iconHeader;
+            }
+
+            &:hover .infobulle {
+              visibility: visible;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.wrapper>a {
+  width: 20%;
+  @include flexBetween;
+
+  & img {
+    margin-left: -5px;
+  }
+
+  // border: 2px solid pink;
+  ul {
+    padding-right: 10px;
+  }
+
+  .iconGam {
+    color: $iconHeader;
+  }
+
+  .imgHeader {
+    width: 40%;
+    object-fit: cover;
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .wrapper>a {
+    padding-left: 0 !important;
+
+    .imgHeader {
+      display: flex;
+    }
+
+    .iconGam {
+      display: none;
+    }
+  }
+
+  header .wrapper nav div:first-child {
+    margin-left: -80px;
+  }
+
+}

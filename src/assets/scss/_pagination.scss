@@ -1,0 +1,35 @@
+.boxPagination {
+  // border: 2px solid blue;
+  margin-top: 20px;
+  // overflow: hidden;
+  @include flexStart;
+
+  .wrapper {
+    // border: 2px solid yellow;
+    height: 50px;
+    width: fit-content;
+    color: $text;
+    @include flexStart;
+    // overflow: hidden;
+    // padding: 0 10px 0 10px;
+
+    & button>img {
+      width: 40px;
+      height: fit-content;
+      object-fit: cover;
+      // padding: 0 10px 0 10px;
+    }
+
+    .boxPageDisplay {
+      @include flexCenter;
+      gap: 5px;
+
+      & div {
+        font-size: 1.25rem;
+        font-weight: 900;
+        @include pressStart2p;
+        text-shadow: 0.5px 0.5px 1px #000000, 1px 1px 1px $lineRed, 1.5px 1.5px 1px #000000;
+      }
+    }
+  }
+}

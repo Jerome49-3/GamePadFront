@@ -1,0 +1,257 @@
+.boxGame {
+  // border: 2px solid crimson;
+
+  .wrapper {
+    // border: 2px solid brown;
+
+    .top {
+      // border: 2px solid blue;
+      width: 100%;
+      @include flexColStart;
+
+      &__title {
+        width: fit-content;
+        letter-spacing: 2px;
+
+        .lineRed {
+          margin-left: 15px;
+          width: 90%;
+          border: 5px solid $lineRed;
+          margin-top: -20px;
+          margin-bottom: 20px;
+        }
+      }
+
+      article {
+        // border: 2px solid blue;
+        width: 100%;
+        @include flexColCenter;
+        gap: 10px;
+
+        .left {
+          @include flexColCenter;
+          // border: 2px solid green;
+          height: 100%;
+          border-bottom: 2px solid $lineRed;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        .right {
+          // border: 2px solid yellow;
+          flex: 1;
+          @include flexColTop;
+          height: 100%;
+          padding: 0 0.5% 0 0.5%;
+
+          .boxInfoGames {
+            // border: 2px solid brown;
+            @include flexColTop;
+            height: 100%;
+            width: 100%;
+            gap: 10px;
+            padding: 0.5%;
+
+
+            &__top {
+              @include flexColCenter;
+              width: 100%;
+              height: 50%;
+              gap: 10px;
+
+              & * h3 {
+                color: grey;
+                margin-bottom: 5px;
+              }
+
+              &__platfGenr {
+                @include flexBetween;
+                width: 100%;
+                padding: 0.5% 0 0.5% 0;
+
+                &__platforms {
+                  @include flexColStart;
+                  // border: 2px solid red;
+                  width: calc(100% / 2);
+                  flex-wrap: wrap;
+                  height: 80px;
+                }
+
+                &__genre {
+                  @include flexColEnd;
+                  justify-content: flex-start;
+                  // border: 2px solid red;
+                  width: calc(100% / 2);
+                  height: 100%;
+
+                  & h3 {
+                    margin-bottom: 10px
+                  }
+                }
+              }
+
+              &__releaseDev {
+                width: 100%;
+                padding: 0.5% 0 0.5% 0;
+                @include flexBetween;
+
+                &____releasedDate {
+                  width: calc(100% /2);
+                  @include flexColStart;
+                }
+
+                &__develloper {
+                  width: calc(100% /2);
+                  @include flexColTopEnd;
+                  overflow: hidden;
+                  height: 38px;
+                }
+
+                &__develloper>article {
+                  width: calc(100% /2);
+                  @include flexColEnd;
+                }
+              }
+
+              &__publichAge {
+                width: 100%;
+                padding: 0.5% 0 0.5% 0;
+                @include flexBetween;
+
+                &__publisher {
+                  @include flexColStart;
+                  // border: 2px solid red;
+                  width: calc(100% / 2);
+                  flex-wrap: wrap;
+                  height: 50px;
+                }
+
+                &__AgeRating {
+                  width: calc(100% /2);
+                  @include flexColEnd;
+                }
+              }
+            }
+
+            &__bottom {
+              @include flexColStart;
+              width: 100%;
+              height: 50%;
+              justify-content: flex-end;
+              overflow: hidden;
+
+              & h3 {
+                color: grey;
+                margin-bottom: 5px;
+              }
+
+              .about {
+                @include flexColStart;
+                justify-content: flex-end !important;
+                width: 100%;
+                text-align: justify;
+                overflow: hidden;
+
+                & p {
+                  overflow: hidden;
+                  height: 100px
+                }
+              }
+            }
+          }
+
+          .boxCollecReview {
+            @include flexStart;
+            padding-bottom: 10px;
+            gap: 5%;
+            width: 100%;
+
+            .collec,
+            .review {
+              border: 2px solid $text;
+              padding: 15px;
+              @include flexAround;
+              width: calc(100%/4);
+              height: 60px;
+              border-radius: 15px;
+              background-color: transparent;
+              color: $text;
+              cursor: pointer;
+
+              p {
+                width: 100%;
+                margin-right: 20%;
+              }
+
+              .iconFav,
+              .iconRev {
+                color: $iconHeader;
+              }
+            }
+          }
+
+          .description {
+            padding: 10px;
+            text-align: justify;
+
+            & p {
+              width: 100%;
+              height: 100%;
+              overflow: hidden;
+
+              // word-wrap: break-word;
+            }
+          }
+        }
+      }
+    }
+
+    .bottom {
+      @include flexColCenter;
+      // border: 2px solid white;
+      width: 100%;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .boxGame {
+    .top {
+      article {
+        flex-direction: row !important;
+        width: 100%;
+        height: 56vh;
+
+        .left {
+          width: calc(100% /2);
+          border-bottom: none !important;
+
+          // border-right: 2px solid $lineRed;
+          & img {
+            border-radius: 15px;
+          }
+        }
+
+        .right {
+          width: calc(100% /2);
+
+          .boxCollecReview {
+            .collec {
+              button {
+                width: 80%;
+              }
+            }
+          }
+
+          .description {
+            padding: 20px;
+          }
+        }
+      }
+    }
+  }
+}

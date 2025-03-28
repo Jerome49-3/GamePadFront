@@ -1,0 +1,109 @@
+main {
+  .boxDisplayCount {
+    padding-top: 15px;
+    @include flexCenter;
+  }
+
+  .boxSearchFilters {
+    @include flexColCenter;
+    padding-top: 15px;
+
+    .boxSearch {
+      @include flexColCenter;
+    }
+
+    .boxFilters {
+      @include flexBetween;
+      width: 100%;
+      padding-top: 15px;
+
+      .boxFiltersPlatformType {
+        @include flexCenter;
+        gap: 10px;
+        padding-left: 10px;
+
+        .filterPlatform,
+        .filterType {
+          @include flexCenter;
+          gap: 5px;
+          background-color: rgb(64, 64, 64);
+          padding: 5px;
+          border-radius: 5px;
+        }
+      }
+
+      .boxSortSubmit {
+        @include flexCenter;
+        margin-right: 10px;
+        gap: 5px;
+
+        .filterSort {
+          @include flexCenter;
+          background-color: rgb(64, 64, 64);
+          padding: 5px;
+          border-radius: 5px;
+          gap: 5px;
+        }
+
+        button {
+          background-color: $lineRed;
+          color: $text;
+          padding: 5px;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+
+  .boxCards {
+    // border: 2px solid green;
+    flex-wrap: wrap;
+    @include flexCenter;
+    padding-top: 20px;
+    gap: 1rem;
+
+    & a {
+      // border: 2px solid blue;
+      @include flexColStart;
+      width: 90%;
+      height: 250px;
+      border-radius: 15px;
+      background-color: $backgrdInput;
+      box-shadow: 0.25px 0.25px 1.25px #000000, 1px 1px 1.5px $lineRed, 1.5px 1.5px 1px #000000;
+
+      & img {
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+        object-fit: cover;
+      }
+
+      & div {
+        margin-top: -40px;
+        width: 90%;
+        @include flexCenter;
+
+        & h3 {
+          padding: 10px;
+          font-size: 1.15rem;
+          background-color: transparent;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          text-align: justify;
+          white-space: nowrap;
+          text-shadow: 1px 1px 2px #000000, 1.25px 1.25px 2px #000000, 0px 0px 10px #000000;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .boxCards {
+    gap: 3.75rem !important;
+
+    a {
+      width: 250px !important;
+    }
+  }
+}
