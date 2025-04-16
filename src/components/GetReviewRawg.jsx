@@ -1,15 +1,26 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect, Fragment } from "react";
-import axios from 'axios';
+import axios from "axios";
 //components
 import Loading from "./Loading";
 import Image from "./Image";
 import Counter from "./Counter";
 
 //images
-import defaultAvatar from '../assets/images/user-avatar.png'
+import defaultAvatar from "../assets/images/user-avatar.png";
 
-const GetReviewRawg = ({ isLoading, isSameLoading, isEndloading, setIsEndloading, errorMessage, setErrorMessage, id, icon1, icon2, token }) => {
-
+const GetReviewRawg = ({
+  isLoading,
+  isSameLoading,
+  isEndloading,
+  setIsEndloading,
+  errorMessage,
+  setErrorMessage,
+  id,
+  icon1,
+  icon2,
+  token,
+}) => {
   const [review, setReview] = useState();
 
   // console.log('id on GetReviewRawg:', id);
@@ -30,12 +41,12 @@ const GetReviewRawg = ({ isLoading, isSameLoading, isEndloading, setIsEndloading
           setIsEndloading(false);
         } else {
           setErrorMessage(error.response);
-          console.log('errorMessage:', errorMessage);
+          console.log("errorMessage:", errorMessage);
         }
       } catch (error) {
-        console.log('error.response:', error.response);
+        console.log("error.response:", error.response);
       }
-    }
+    };
     //si isLoading(first useEffect) est false et id different d'undefined, j'appelle la fonction fetchDataReview()
     if (isLoading !== true && isSameLoading !== true && id !== undefined) {
       // console.log('isSameLoading on GetReviewRawg:', isSameLoading, '\n', 'id on GetReviewRawg:', id);
@@ -45,7 +56,9 @@ const GetReviewRawg = ({ isLoading, isSameLoading, isEndloading, setIsEndloading
     }
   }, [id, isLoading, isSameLoading]);
 
-  return isEndloading ? (<Loading />) : (
+  return isEndloading ? (
+    <Loading />
+  ) : (
     <div className="boxCommentMongoDb">
       {review.reviews.map((comment, key = review._id) => {
         // console.log('key ds review.reviews.map:', key);
@@ -53,10 +66,11 @@ const GetReviewRawg = ({ isLoading, isSameLoading, isEndloading, setIsEndloading
         const idCounter = comment._id;
         // console.log('idCounter', idCounter);
         return (
-          <Fragment>
-            {comment.message ? (<p>No review for this game</p>) : (
-              <div className="boxComment" key={key}>
-
+          <Fragment key={key}>
+            {comment.message ? (
+              <p>No review for this game</p>
+            ) : (
+              <div className="boxComment">
                 <div className="boxComment__top">
                   <div className="boxComment__top__title">
                     <h3>{comment.title}</h3>
@@ -69,7 +83,10 @@ const GetReviewRawg = ({ isLoading, isSameLoading, isEndloading, setIsEndloading
                   <div className="left">
                     <div className="boxAvatar">
                       {review.user.avatar ? (
-                        <Image src={review.user.avatar.secure_url} alt="avatar" />
+                        <Image
+                          src={review.user.avatar.secure_url}
+                          alt="avatar"
+                        />
                       ) : (
                         <Image src={defaultAvatar} alt="avatar" />
                       )}
@@ -80,16 +97,24 @@ const GetReviewRawg = ({ isLoading, isSameLoading, isEndloading, setIsEndloading
                     </div>
                   </div>
                   <div className="right">
-                    <Counter icon1={icon1} icon2={icon2} classIcon='iconGam' token={token} id={idCounter} isEndloading={isEndloading} comment={comment} />
+                    <Counter
+                      icon1={icon1}
+                      icon2={icon2}
+                      classIcon="iconGam"
+                      token={token}
+                      id={idCounter}
+                      isEndloading={isEndloading}
+                      comment={comment}
+                    />
                   </div>
                 </div>
               </div>
             )}
           </Fragment>
-        )
+        );
       })}
     </div>
-  )
-}
+  );
+};
 
-export default GetReviewRawg
+export default GetReviewRawg;

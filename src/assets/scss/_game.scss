@@ -47,6 +47,7 @@
           @include flexColTop;
           height: 100%;
           padding: 0 0.5% 0 0.5%;
+          width: 100%;
 
           .boxInfoGames {
             // border: 2px solid brown;
@@ -158,6 +159,8 @@
 
                 & p {
                   overflow: hidden;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
                   height: 100px
                 }
               }
@@ -175,12 +178,12 @@
               border: 2px solid $text;
               padding: 15px;
               @include flexAround;
-              width: calc(100%/4);
               height: 60px;
               border-radius: 15px;
               background-color: transparent;
               color: $text;
               cursor: pointer;
+              width: 100%;
 
               p {
                 width: 100%;
@@ -255,3 +258,21 @@
     }
   }
 }
+
+// BREAKPOINTS
+// @media all and (min-width : 576px) {}
+
+// @media all and (min-width : 768px) {}
+
+// @media all and (min-width : 992px) {}
+
+@media all and (min-width : 1200px) {
+
+  .collec,
+  .review {
+    width: calc(100%/4);
+  }
+
+}
+
+// @media all and (min-width : 1400px) {}

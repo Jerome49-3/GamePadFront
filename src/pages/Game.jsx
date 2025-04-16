@@ -120,10 +120,10 @@ const Game = ({ icon1, icon2, icon3, icon4, token, errorMessage, setErrorMessage
                         {data.platforms.map((platform, key = uuidv4()) => {
                           // console.log('platform:', platform);
                           return (
-                            <Fragment>
-                              <div key={key}>{platform.platform.name}</div>
-                              {/* {console.log('key on platform:', key)} */}
-                            </Fragment>
+                            // <Fragment>
+                            //   <div key={key}>{platform.platform.name}</div>
+                            //   {/* {console.log('key on platform:', key)} */}
+                            // </Fragment>
                           )
                         })}
                       </div>
@@ -132,8 +132,8 @@ const Game = ({ icon1, icon2, icon3, icon4, token, errorMessage, setErrorMessage
                         {data.genres.map((genre, key = uuidv4()) => {
                           // console.log('genre:', genre);
                           return (
-                            <Fragment>
-                              <div key={key}>{genre.name}</div>
+                            <Fragment key={key}>
+                              <div>{genre.name}</div>
                               {/* {console.log('key on genre:', key)} */}
                             </Fragment>
                           )
@@ -151,8 +151,8 @@ const Game = ({ icon1, icon2, icon3, icon4, token, errorMessage, setErrorMessage
                           {data.developers.map((dev, key = uuidv4()) => {
                             // console.log('dev:', dev);
                             return (
-                              <Fragment>
-                                <div key={key}>{dev.name}</div>
+                              <Fragment key={key}>
+                                <div >{dev.name}</div>
                                 {/* {console.log('key on dev:', key)} */}
                               </Fragment>
                             )
@@ -169,8 +169,8 @@ const Game = ({ icon1, icon2, icon3, icon4, token, errorMessage, setErrorMessage
                             {data.publishers.map((publisher, key = uuidv4()) => {
                               // console.log('publisher:', publisher);
                               return (
-                                <Fragment>
-                                  {publisher ? (<div key={key}>{publisher.name}</div>) : (<p>No Information</p>)}
+                                <Fragment key={key}>
+                                  {publisher ? (<div>{publisher.name}</div>) : (<p>No Information</p>)}
                                   {/* {console.log('publisher on dev:', key)} */}
                                 </Fragment>
                               )
