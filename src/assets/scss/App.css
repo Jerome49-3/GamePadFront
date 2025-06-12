@@ -126,7 +126,7 @@ input,
 textarea {
   font-size: 1.15rem;
   width: 100%;
-  padding: 5px 5px 5px 8px;
+  padding: 5px;
   border: none;
   border-radius: 8px;
   caret-color: orangered;
@@ -399,9 +399,10 @@ footer .wrapper .boxLinkFooter {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 footer .wrapper .boxLinkFooter li {
-  width: 50%;
+  width: 100%;
   text-align: center;
 }
 footer .wrapper .boxLinkFooter li:first-child a {
@@ -429,13 +430,12 @@ footer .wrapper .boxLinkFooter li:last-child a {
     gap: 5px;
   }
 }
-@media all and (min-width: 1200px) {
-  .collec,
-  .review {
-    width: 25%;
-  }
+@media all and (min-width: 768px) {
   .boxLinkFooter {
-    flex-direction: column !important;
+    flex-direction: row !important;
+  }
+  .boxLinkFooter li {
+    width: 100% !important;
   }
 }
 .boxPagination {
@@ -450,7 +450,7 @@ footer .wrapper .boxLinkFooter li:last-child a {
   width: fit-content;
   color: rgba(241, 241, 241, 0.9450980392);
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 }
 .boxPagination .wrapper button > img {
@@ -585,10 +585,13 @@ main .boxCards a div h3 {
 }
 
 @media (min-width: 768px) {
-  .boxCards {
+  main .boxCards {
     gap: 3.75rem !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  .boxCards a {
+  main .boxCards a {
     width: 250px !important;
   }
 }
@@ -659,6 +662,52 @@ main .boxCards a div h3 {
     gap: 3rem;
   }
 }
+.boxPsswd {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0px 0px 1px #000000, 0.1px 0.1px 1px rgb(255, 34, 0), 0.2px 0.2px 1px rgb(255, 34, 0), 0.3px 0.3px 1px rgb(255, 34, 0);
+}
+.boxPsswd .classLabelInput {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  height: 30px;
+}
+.boxPsswd .classLabelInput input {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: none;
+  border-bottom: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  height: 30px;
+  padding: 0;
+  width: 100%;
+}
+.boxPsswd .boxIcons {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  background-color: rgba(241, 241, 241, 0.9450980392);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.boxPsswd .boxIcons svg {
+  color: #000000;
+}
+
 .boxLogin form {
   display: flex;
   justify-content: center;
@@ -726,32 +775,13 @@ main .boxCards a div h3 {
   flex-direction: column;
   gap: 1.5rem;
 }
-.boxModal .boxModalContent__right .boxForm .boxPsswd {
+.boxModal .boxModalContent__right .boxForm label {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 1.5rem;
+  color: #757575;
+  font-weight: 900;
 }
-.boxModal .boxModalContent__right .boxForm .boxPsswd .inputPsswd,
-.boxModal .boxModalContent__right .boxForm .boxPsswd .inputConfPsswd {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.boxModal .boxModalContent__right .boxForm label input {
   width: 100%;
-  background-color: rgba(241, 241, 241, 0.9450980392);
-  color: #000000;
-  border-radius: 8px;
-  outline: 2px solid transparent;
-}
-.boxModal .boxModalContent__right .boxForm .boxPsswd .inputPsswd input,
-.boxModal .boxModalContent__right .boxForm .boxPsswd .inputConfPsswd input {
-  background-color: transparent;
-}
-.boxModal .boxModalContent__right .boxForm .boxPsswd .inputPsswd svg,
-.boxModal .boxModalContent__right .boxForm .boxPsswd .inputConfPsswd svg {
-  padding-right: 20px;
 }
 .boxModal .boxModalContent__right .errorMessage {
   display: flex;
@@ -774,7 +804,7 @@ main .boxCards a div h3 {
   .boxModal .boxModalContent {
     width: 50%;
     flex-direction: row !important;
-    height: 55vh;
+    height: 65vh;
   }
   .boxModal .boxModalContent__left {
     border-top-left-radius: 15px;
@@ -926,12 +956,12 @@ main .boxCards a div h3 {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 100%;
   gap: 10px;
-  flex-wrap: wrap;
 }
 .boxGameLike__content a {
-  width: 30%;
+  width: 100%;
   height: 8rem;
 }
 .boxGameLike__content a img {
@@ -953,9 +983,7 @@ main .boxCards a div h3 {
 
 @media (min-width: 768px) {
   .boxGameLike__content {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    flex-direction: row;
     flex-wrap: nowrap !important;
   }
   .boxGameLike__content a {
@@ -1096,8 +1124,8 @@ main .boxCards a div h3 {
   align-items: center;
   flex-direction: column;
   height: 100%;
-  padding: 0 0.5% 0 0.5%;
   width: 100%;
+  gap: 10px;
 }
 .boxGame .wrapper .top article .right .boxInfoGames {
   display: flex;
@@ -1107,101 +1135,114 @@ main .boxCards a div h3 {
   height: 100%;
   width: 100%;
   gap: 10px;
-  padding: 0.5%;
 }
 .boxGame .wrapper .top article .right .boxInfoGames__top {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: 50%;
   gap: 10px;
 }
 .boxGame .wrapper .top article .right .boxInfoGames__top * h3 {
   color: grey;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
-.boxGame .wrapper .top article .right .boxInfoGames__top__platfGenr {
+.boxGame .wrapper .top article .right .boxInfoGames__top .platfGenr {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0.5% 0 0.5% 0;
+  align-items: flex-start;
 }
-.boxGame .wrapper .top article .right .boxInfoGames__top__platfGenr__platforms {
+.boxGame .wrapper .top article .right .boxInfoGames__top .platfGenr .platforms {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
   width: 50%;
   flex-wrap: wrap;
-  height: 80px;
 }
-.boxGame .wrapper .top article .right .boxInfoGames__top__platfGenr__genre {
+.boxGame .wrapper .top article .right .boxInfoGames__top .platfGenr .platforms .boxDetails {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: flex-start;
   flex-direction: column;
-  justify-content: flex-start;
+}
+.boxGame .wrapper .top article .right .boxInfoGames__top .platfGenr .platforms,
+.boxGame .wrapper .top article .right .boxInfoGames__top .platfGenr .genre {
   width: 50%;
   height: 100%;
 }
-.boxGame .wrapper .top article .right .boxInfoGames__top__platfGenr__genre h3 {
-  margin-bottom: 10px;
+.boxGame .wrapper .top article .right .boxInfoGames__top .platfGenr .genre {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
 }
-.boxGame .wrapper .top article .right .boxInfoGames__top__releaseDev {
+.boxGame .wrapper .top article .right .boxInfoGames__top .platfGenr .genre .boxDetails {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.boxGame .wrapper .top article .right .boxInfoGames__top .releaseDev {
   width: 100%;
-  padding: 0.5% 0 0.5% 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.boxGame .wrapper .top article .right .boxInfoGames__top__releaseDev____releasedDate {
+.boxGame .wrapper .top article .right .boxInfoGames__top .releaseDev .develloper,
+.boxGame .wrapper .top article .right .boxInfoGames__top .releaseDev .releasedDate {
   width: 50%;
+}
+.boxGame .wrapper .top article .right .boxInfoGames__top .releaseDev .releasedDate {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
 }
-.boxGame .wrapper .top article .right .boxInfoGames__top__releaseDev__develloper {
-  width: 50%;
+.boxGame .wrapper .top article .right .boxInfoGames__top .releaseDev .developer {
   display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.boxGame .wrapper .top article .right .boxInfoGames__top .releaseDev .developer .boxDetails {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: end;
+}
+.boxGame .wrapper .top article .right .boxInfoGames .publichAge {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.boxGame .wrapper .top article .right .boxInfoGames .publichAge .publisher {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 100%;
+}
+.boxGame .wrapper .top article .right .boxInfoGames .publichAge .ageRating {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.boxGame .wrapper .top article .right .boxInfoGames .publichAge .ageRating,
+.boxGame .wrapper .top article .right .boxInfoGames .publichAge .publisher {
+  width: 50%;
   justify-content: flex-start;
-  align-items: flex-end;
-  flex-direction: column;
-  overflow: hidden;
-  height: 38px;
+  height: 100%;
 }
-.boxGame .wrapper .top article .right .boxInfoGames__top__releaseDev__develloper > article {
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  flex-direction: column;
-}
-.boxGame .wrapper .top article .right .boxInfoGames__top__publichAge {
-  width: 100%;
-  padding: 0.5% 0 0.5% 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.boxGame .wrapper .top article .right .boxInfoGames__top__publichAge__publisher {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  width: 50%;
-  flex-wrap: wrap;
-  height: 50px;
-}
-.boxGame .wrapper .top article .right .boxInfoGames__top__publichAge__AgeRating {
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  flex-direction: column;
+.boxGame .wrapper .top article .right .boxInfoGames .publichAge .ageRating .boxDetails,
+.boxGame .wrapper .top article .right .boxInfoGames .publichAge .publisher .boxDetails {
+  height: 100%;
 }
 .boxGame .wrapper .top article .right .boxInfoGames__bottom {
   display: flex;
@@ -1213,27 +1254,19 @@ main .boxCards a div h3 {
   justify-content: flex-end;
   overflow: hidden;
 }
-.boxGame .wrapper .top article .right .boxInfoGames__bottom h3 {
+.boxGame .wrapper .top article .right .boxInfoGames__bottom * h3 {
   color: grey;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 .boxGame .wrapper .top article .right .boxInfoGames__bottom .about {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
   flex-direction: column;
   justify-content: flex-end !important;
   width: 100%;
   text-align: justify;
   overflow: hidden;
 }
-.boxGame .wrapper .top article .right .boxInfoGames__bottom .about p {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  height: 100px;
-}
-.boxGame .wrapper .top article .right .boxCollecReview {
+.boxGame .wrapper .top article .boxCollecReview {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -1241,8 +1274,8 @@ main .boxCards a div h3 {
   gap: 5%;
   width: 100%;
 }
-.boxGame .wrapper .top article .right .boxCollecReview .collec,
-.boxGame .wrapper .top article .right .boxCollecReview .review {
+.boxGame .wrapper .top article .boxCollecReview .collec,
+.boxGame .wrapper .top article .boxCollecReview .review {
   border: 2px solid rgba(241, 241, 241, 0.9450980392);
   padding: 15px;
   display: flex;
@@ -1255,27 +1288,27 @@ main .boxCards a div h3 {
   cursor: pointer;
   width: 100%;
 }
-.boxGame .wrapper .top article .right .boxCollecReview .collec p,
-.boxGame .wrapper .top article .right .boxCollecReview .review p {
+.boxGame .wrapper .top article .boxCollecReview .collec p,
+.boxGame .wrapper .top article .boxCollecReview .review p {
   width: 100%;
   margin-right: 20%;
 }
-.boxGame .wrapper .top article .right .boxCollecReview .collec .iconFav,
-.boxGame .wrapper .top article .right .boxCollecReview .collec .iconRev,
-.boxGame .wrapper .top article .right .boxCollecReview .review .iconFav,
-.boxGame .wrapper .top article .right .boxCollecReview .review .iconRev {
+.boxGame .wrapper .top article .boxCollecReview .collec .iconFav,
+.boxGame .wrapper .top article .boxCollecReview .collec .iconRev,
+.boxGame .wrapper .top article .boxCollecReview .review .iconFav,
+.boxGame .wrapper .top article .boxCollecReview .review .iconRev {
   color: #FF4655;
 }
-.boxGame .wrapper .top article .right .description {
+.boxGame .wrapper .top article .description {
   padding: 10px;
   text-align: justify;
 }
-.boxGame .wrapper .top article .right .description p {
+.boxGame .wrapper .top article .description p {
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
-.boxGame .wrapper .bottom {
+.boxGame .bottom {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1283,33 +1316,19 @@ main .boxCards a div h3 {
   width: 100%;
 }
 
-@media (min-width: 768px) {
-  .boxGame .top article {
-    flex-direction: row !important;
-    width: 100%;
-    height: 56vh;
+@media all and (min-width: 768px) {
+  .boxGame > .wrapper > .top > article {
+    flex-direction: row;
   }
-  .boxGame .top article .left {
-    width: 50%;
-    border-bottom: none !important;
-  }
-  .boxGame .top article .left img {
-    border-radius: 15px;
-  }
-  .boxGame .top article .right {
+  .boxGame > .wrapper > .top > article .left,
+  .boxGame > .wrapper > .top > article .right {
     width: 50%;
   }
-  .boxGame .top article .right .boxCollecReview .collec button {
-    width: 80%;
+  .boxGame > .wrapper > .top > article .left {
+    height: var(--divHeight);
   }
-  .boxGame .top article .right .description {
-    padding: 20px;
-  }
-}
-@media all and (min-width: 1200px) {
-  .collec,
-  .review {
-    width: 25%;
+  .boxGame > .wrapper > .top > article .left > img {
+    height: var(--divHeight);
   }
 }
 main .wrapper .boxFav {

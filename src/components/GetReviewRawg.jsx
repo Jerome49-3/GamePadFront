@@ -31,19 +31,21 @@ const GetReviewRawg = ({
         //je verifie la precense de l'id dans le second use effect
         // console.log('id2 on useEffect in GetReviewRawg:', id);
         //je fais une requete axios à la route /review avec en params l'id du jeu obtenu dans le premier useEffect;
-        const response = await axios.get(`http://localhost:3000/review/${id}`);
+        const response = await axios.get(
+          `${import.meta.env.VITE_REACT_APP_URL}/review/${id}`
+        );
         if (response) {
-          // console.log('response useEffect on GameReviewRawg:', response);
+          // console.log("response useEffect on GameReviewRawg:", response);
           // console.log('response.data useEffect on GameReviewRawg:', response.data);
           //je verifie la reponse de la requete dans le second use effect
           setReview(response.data);
           // console.log('review:', review);
           setIsEndloading(false);
         } else {
-          setErrorMessage(error.response);
-          console.log("errorMessage:", errorMessage);
+          console.log("errorResponse:", response);
         }
       } catch (error) {
+        setErrorMessage(error.response);
         console.log("error.response:", error.response);
       }
     };
@@ -113,6 +115,7 @@ const GetReviewRawg = ({
           </Fragment>
         );
       })}
+      {errorMessage}
     </div>
   );
 };

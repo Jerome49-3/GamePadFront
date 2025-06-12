@@ -50,27 +50,13 @@
         @include flexColCenter;
         gap: 1.5rem;
 
-        .boxPsswd {
+        & label {
           width: 100%;
-          @include flexColCenter;
-          gap: 1.5rem;
+          color: #757575;
+          font-weight: 900;
 
-          .inputPsswd,
-          .inputConfPsswd {
-            @include flexCenter;
+          & input {
             width: 100%;
-            background-color: $text;
-            color: #000000;
-            border-radius: 8px;
-            outline: 2px solid transparent;
-
-            input {
-              background-color: transparent;
-            }
-
-            svg {
-              padding-right: 20px;
-            }
           }
         }
       }
@@ -98,7 +84,7 @@
     .boxModalContent {
       width: calc(100% / 2);
       flex-direction: row !important;
-      height: 55vh;
+      height: 65vh;
 
       &__left {
         border-top-left-radius: 15px;

@@ -99,8 +99,9 @@ main {
 }
 
 @media (min-width: 768px) {
-  .boxCards {
+  main .boxCards {
     gap: 3.75rem !important;
+    @include flexBetween;
 
     a {
       width: 250px !important;

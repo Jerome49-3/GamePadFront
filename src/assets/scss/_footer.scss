@@ -6,10 +6,10 @@ footer {
     width: 100%;
 
     .boxLinkFooter {
-      @include flexCenter;
+      @include flexColCenter;
 
       & li {
-        width: calc(100% / 2);
+        width: 100%;
         text-align: center;
       }
 
@@ -48,20 +48,18 @@ footer {
 // BREAKPOINTS
 // @media all and (min-width : 576px) {}
 
-// @media all and (min-width : 768px) {}
+@media all and (min-width : 768px) {
+  .boxLinkFooter {
+    flex-direction: row !important;
+
+    & li {
+      width: 100% !important;
+    }
+  }
+}
 
 // @media all and (min-width : 992px) {}
 
-@media all and (min-width : 1200px) {
-
-  .collec,
-  .review {
-    width: calc(100%/4);
-  }
-
-  .boxLinkFooter {
-    flex-direction: column !important;
-  }
-}
+// @media all and (min-width : 1200px) {}
 
 // @media all and (min-width : 1400px) {}
