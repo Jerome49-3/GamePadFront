@@ -269,64 +269,14 @@
 
 // @media all and (min-width : 992px) {}
 
-// @media all and (min-width : 1200px) {
-//   .boxGame {
-//     .top {
-//       height: 70% !important;
+// @media all and (min-width : 1200px) {}
 
-//       article {
-//         flex-direction: row !important;
-//         width: 100%;
-//         height: 56vh;
+@media all and (min-width : 1400px) {
+  .boxGame>.wrapper {
 
-//         .left {
-//           width: calc(100% /2);
-//           border-bottom: none !important;
-
-//           // border-right: 2px solid $lineRed;
-//           & img {
-//             border-radius: 15px;
-//           }
-//         }
-
-//         .right {
-//           width: calc(100% /2) !important;
-
-//           .boxCollecReview {
-//             height: 15%;
-//             justify-content: flex-start !important;
-//             align-items: flex-start !important;
-
-//             .collec,
-//             .review {
-//               width: calc(100%/4) !important;
-//             }
-//           }
-
-//           .boxInfoGames {
-//             align-items: flex-end !important;
-//             height: calc(100% - 60px) !important;
-
-//             &__top {
-//               &__platfGenr {
-//                 &__platforms {
-//                   height: fit-content !important;
-//                 }
-
-//                 &__genre {}
-//               }
-
-
-//             }
-//           }
-//         }
-
-//         .description {
-//           padding: 20px;
-//         }
-//       }
-//     }
-//   }
-// }
-
-// @media all and (min-width : 1400px) {}
+    .top>.title>.lineRed,
+    .bottom>.title>.lineRed {
+      margin-top: -5px;
+    }
+  }
+}

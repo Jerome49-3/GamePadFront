@@ -19,6 +19,7 @@ import {
   faUser,
   faThumbsUp,
   faThumbsDown,
+  faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 library.add(
   faMagnifyingGlass,
@@ -33,7 +34,8 @@ library.add(
   faHeart,
   faUser,
   faThumbsUp,
-  faThumbsDown
+  faThumbsDown,
+  faTrash
 );
 
 // import Pages
@@ -47,13 +49,15 @@ import Header from "./components/Header";
 import Signup from "./components/Signup";
 
 //import images
-import controlFour from "./assets/images/crossRed.png";
-import noImg from "./assets/images/noImg.png";
+import controlFour from "/images/crossRed.png";
+import noImg from "/images/noImg.png";
 
 function App() {
   const [errorMessage, setErrorMessage] = useState("");
   const [search, setSearch] = useState("");
   const [platforms, setPlatforms] = useState("");
+  const [dimWindows, setDimWindows] = useState({});
+
   // console.log("platforms in App:", platforms);
   const [genres, setGenres] = useState("");
   // console.log("genres in App:", genres);
@@ -65,7 +69,7 @@ function App() {
   const [fav, setFav] = useState(() => {
     const savedFav = Cookies.get("Collections");
     try {
-      // console.log('JSON.parse(savedFav):', JSON.parse(savedFav));
+      console.log("JSON.parse(savedFav):", JSON.parse(savedFav));
       return JSON.parse(savedFav);
     } catch (e) {
       console.error("Invalid JSON in cookie: ", e);
@@ -98,7 +102,7 @@ function App() {
           count={count}
           setCount={setCount}
           icon1="magnifying-glass"
-          src={controlFour}
+          controlFour={controlFour}
           alt="control GamePad"
           classImg="imgHeader"
           icon2={faBookmark}
@@ -113,6 +117,8 @@ function App() {
           token={token}
           setToken={setToken}
           fav={fav}
+          dimWindows={dimWindows}
+          setDimWindows={setDimWindows}
         />
         <Routes>
           <Route
@@ -167,6 +173,7 @@ function App() {
                 token={token}
                 setSearch={setSearch}
                 setShowSearch={setShowSearch}
+                faTrash={faTrash}
               />
             }
           />

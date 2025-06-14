@@ -1,16 +1,17 @@
 header {
   border-bottom: 2px solid crimson;
-  padding: 0 10px 0 10px;
+  padding: 10px;
+  height: 60px;
+  position: relative;
 
   .wrapper {
     @include flexBetween;
 
     // border: 2px solid green;
     .logo {
-      @include flexStart;
-      gap: 5px;
-      padding: 0 0 0 10px;
-      margin-left: -10px;
+      @include flexBetween;
+      // gap: 5px;
+      width: 70%;
 
       & img {
         width: 40px;
@@ -19,6 +20,7 @@ header {
       }
 
       & p {
+        // @include flexEnd;
         @include pressStart2p;
         letter-spacing: 0.25rem;
         order: 2;
@@ -27,8 +29,9 @@ header {
     }
 
     nav {
-      @include flexStart;
-      width: 60%;
+      @include flexEnd;
+      width: 20%;
+
 
       .boxSearch {
         background-color: #ffffff;
@@ -37,17 +40,29 @@ header {
         padding-left: 8px;
         gap: 5px;
         // border: 2px solid blue;
-        width: 100%;
-        margin-left: -20px;
+        width: 40%;
+        position: absolute;
+        top: 80%;
+        left: 47%;
+        transform: translate(-50%, -50%);
 
-        input {
+        .svg-inline--fa {
+          height: 15px;
+        }
+
+        .classLabelInput {
           width: 100%;
-          border-top-right-radius: 15px;
-          border-bottom-right-radius: 15px;
-          padding: none;
-          border: none;
-          caret-color: #000;
-          background-color: transparent !important
+          height: 20px;
+
+          input {
+            width: 100%;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+            padding: none;
+            border: none;
+            caret-color: #000;
+            background-color: transparent !important
+          }
         }
 
         & svg {
@@ -56,15 +71,16 @@ header {
       }
 
       ul {
-        @include flexEnd;
+        @include flexBetween;
         width: 100%;
 
         li {
           @include flexCenter;
-          margin-top: 25px;
+          width: fit-content;
 
           a {
             @include flexColCenter;
+            width: fit-content;
 
             .infobulle {
               background-color: $text;
@@ -72,10 +88,12 @@ header {
               text-align: center;
               padding: 1.5px;
               border-radius: 5px;
-              position: relative;
+              position: absolute;
               display: inline-block;
               visibility: hidden;
-              margin-top: 5px;
+              top: 100%;
+              left: 80%;
+              transform: translate(-50%, -50%);
             }
 
             .iconFav,
@@ -102,10 +120,12 @@ header {
               text-align: center;
               padding: 1.5px;
               border-radius: 5px;
-              position: relative;
+              position: absolute;
               display: inline-block;
               visibility: hidden;
-              margin-top: 5px;
+              top: 100%;
+              left: 90%;
+              transform: translate(-50%, -50%);
             }
 
             .iconSignup,
@@ -143,25 +163,43 @@ header {
   .imgHeader {
     width: 40%;
     object-fit: cover;
-    display: none;
   }
 }
+
+// BREAKPOINTS
+// @media all and (min-width : 576px) {}
 
 @media (min-width: 768px) {
-  .wrapper>a {
-    padding-left: 0 !important;
+  header {
+    height: 50px;
+    padding: 5px;
 
-    .imgHeader {
-      display: flex;
+    .wrapper {
+      height: 100%;
+
+      .logo {
+        padding-left: 5px;
+        width: 20%;
+        gap: 10px;
+      }
+
+      & nav>.boxSearch {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        .classLabelInput {
+          height: 30px;
+        }
+      }
     }
-
-    .iconGam {
-      display: none;
-    }
-  }
-
-  header .wrapper nav div:first-child {
-    margin-left: -80px;
   }
 
 }
+
+// @media all and (min-width : 992px) {}
+
+// @media all and (min-width : 1200px) {}
+
+// @media all and (min-width : 1400px) {}

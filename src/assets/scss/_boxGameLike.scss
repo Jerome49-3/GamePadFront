@@ -34,6 +34,9 @@
     }
   }
 
+  // BREAKPOINTS
+  // @media all and (min-width : 576px) {}
+
   @media (min-width: 768px) {
     .boxGameLike {
       &__content {
@@ -45,5 +48,15 @@
           height: 12.5rem !important;
         }
       }
+    }
+  }
+
+  // @media all and (min-width : 992px) {}
+
+  // @media all and (min-width : 1200px) {}
+
+  @media all and (min-width : 1400px) {
+    .boxGameLike>.title>.lineRed {
+      margin-top: -5px;
     }
   }

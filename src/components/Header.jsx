@@ -1,7 +1,12 @@
-import { Link, Navigate } from "react-router-dom";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { Link, Navigate, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect } from "react";
 import Cookies from "js-cookie";
 
+//lib
+import setDimensions from "../assets/lib/setDimensions";
+import addRemoveListener from "../assets/lib/addRemoveListener";
 //components
 import Input from "./Input";
 import Links from "./Links";
@@ -22,11 +27,16 @@ const Header = ({
   icon4,
   icon5,
   icon6,
-  src,
+  controlFour,
   alt,
   classImg,
   showSearch,
+  dimWindows,
+  setDimWindows,
 }) => {
+  console.log("%cToken:", "color: orangered", token);
+  console.log("%cDimWindows:", "color: red", dimWindows);
+  console.log("%cImgControlFour:", "color: red", controlFour);
   const handleShowSignup = () => {
     showSignup === false ? setShowSignup(true) : setShowSignup(false);
   };
@@ -34,13 +44,20 @@ const Header = ({
     showLogin === false ? setShowLogin(true) : setShowLogin(false);
   };
   // const navigate = useNavigate();
-
+  //location
+  let location = useLocation();
   const handleLogout = () => {
     Cookies.remove("gamePad");
     setToken(null);
     <Navigate to="/" />;
   };
+  useEffect(() => {
+    return addRemoveListener("resize", setDimensions, setDimWindows);
+  }, [location.pathname]);
 
+  useEffect(() => {
+    return addRemoveListener("load", setDimensions, setDimWindows);
+  }, [location.pathname]);
   // const handleLink = () => {
   //   const path = '/';
   //   navigate(path);
@@ -49,18 +66,27 @@ const Header = ({
   return (
     <header>
       <div className="wrapper">
-        {/* <Button src={src} alt={alt} classImg={classImg} buttonText='GamePad' classButton='logo' handleClick={handleLink} /> */}
-        <Links
-          path="/"
-          src={src}
-          alt={alt}
-          classImg={classImg}
-          icon={icon4}
-          classIcon="iconGam"
-          classLinkText="h1Header"
-          linkText="GamePad"
-          classLink="logo"
-        />
+        {dimWindows.width > 768 ? (
+          <Links
+            path="/"
+            src={controlFour}
+            alt={alt}
+            classImg={classImg}
+            classLinkText="h1Header"
+            linkText="GamePad"
+            classLink="logo"
+          />
+        ) : (
+          <Links
+            path="/"
+            icon={icon4}
+            classIcon="iconGam"
+            classLinkText="h1Header"
+            linkText="GamePad"
+            classLink="logo"
+          />
+        )}
+
         <nav>
           {showSearch && (
             <div className="boxSearch">

@@ -7,7 +7,7 @@ import Image from "./Image";
 import Counter from "./Counter";
 
 //images
-import defaultAvatar from "../assets/images/user-avatar.png";
+import defaultAvatar from "/images/user-avatar.png";
 
 const GetReviewRawg = ({
   isLoading,

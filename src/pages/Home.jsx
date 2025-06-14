@@ -22,6 +22,7 @@ const Home = ({
   items,
   setShowSearch,
   // platforms,
+  dimWindows,
   setPlatforms,
   platformsArr,
   setPlatformsArr,
