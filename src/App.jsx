@@ -65,17 +65,19 @@ function App() {
   // meme useState avec JSON.parse en retour
   const [fav, setFav] = useState(() => {
     const savedFav = Cookies.get("Collections");
+    console.log("savedFav in app:", savedFav);
     try {
-      // console.log("JSON.parse(savedFav):", JSON.parse(savedFav));
-      return JSON.parse(savedFav);
+      if (!savedFav) {
+        return [];
+      } else {
+        console.log("JSON.parse(savedFav) in app:", JSON.parse(savedFav));
+        return JSON.parse(savedFav);
+      }
     } catch (e) {
-      console.error("Invalid JSON in cookie: ", e);
-      return [];
+      console.error("%cInvalid JSON in  on app: ", "color: red", e);
     }
   });
-  //test avec un autre cookie à recupérer:
-  // const [fav, setFav] = useState([Cookies.get('gamePad')]|| null);
-  // console.log('fav in app:', fav);
+  console.log("fav in app:", fav);
   const [showSignup, setShowSignup] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
