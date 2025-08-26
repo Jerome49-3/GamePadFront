@@ -32,7 +32,7 @@ const SignUp = ({
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [pictures, setPictures] = useState({});
-  console.log("pictures:", pictures);
+  // console.log("pictures:", pictures);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -45,22 +45,22 @@ const SignUp = ({
     formData.append("password", password);
     formData.append("confirmPassword", confirmPassword);
     formData.append("pictures", pictures);
-    console.log(
-      "password:",
-      password,
-      "\n",
-      "username:",
-      username,
-      "\n",
-      "confirmPassword:",
-      confirmPassword,
-      "\n",
-      "email:",
-      email,
-      "\n",
-      "pictures:",
-      pictures
-    );
+    // console.log(
+    //   "password:",
+    //   password,
+    //   "\n",
+    //   "username:",
+    //   username,
+    //   "\n",
+    //   "confirmPassword:",
+    //   confirmPassword,
+    //   "\n",
+    //   "email:",
+    //   email,
+    //   "\n",
+    //   "pictures:",
+    //   pictures
+    // );
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_REACT_APP_URL}/user/signup`,

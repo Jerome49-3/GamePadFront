@@ -51,17 +51,14 @@ import Signup from "./components/Signup";
 //import images
 import controlFour from "/images/crossRed.png";
 import noImg from "/images/noImg.png";
+import Attributions from "./pages/Attributions";
 
 function App() {
   const [errorMessage, setErrorMessage] = useState("");
   const [search, setSearch] = useState("");
-  const [platforms, setPlatforms] = useState("");
+  // const [platforms, setPlatforms] = useState("");
   const [dimWindows, setDimWindows] = useState({});
-
-  // console.log("platforms in App:", platforms);
-  const [genres, setGenres] = useState("");
-  // console.log("genres in App:", genres);
-  // const [ordering, setOrdering] = useState("");
+  const [ordering, setOrdering] = useState("");
   // console.log("ordering in App:", ordering);
   const [count, setCount] = useState(0);
   // const [fav, setFav] = useState(Cookies.get('favorites') || []);
@@ -69,7 +66,7 @@ function App() {
   const [fav, setFav] = useState(() => {
     const savedFav = Cookies.get("Collections");
     try {
-      console.log("JSON.parse(savedFav):", JSON.parse(savedFav));
+      // console.log("JSON.parse(savedFav):", JSON.parse(savedFav));
       return JSON.parse(savedFav);
     } catch (e) {
       console.error("Invalid JSON in cookie: ", e);
@@ -86,9 +83,13 @@ function App() {
   const [type2, setType2] = useState("password");
   const [token, setToken] = useState(Cookies.get("gamePad") || null);
   const [page, setPage] = useState(1);
-  const [platformsArr, setPlatformsArr] = useState([]);
+  const [platformsSorted, setPlatformsSorted] = useState([]);
+  const [platforms, setPlatforms] = useState(null);
   // console.log('platformsArr in app:', platformsArr);
-  const [genresArr, setGenresArr] = useState([]);
+  const [genresSorted, setGenresSorted] = useState([]);
+  const [genres, setGenres] = useState(null);
+  // console.log("platforms in App:", platforms);
+  // console.log("genres in App:", genres);
   // console.log('genresArr in app:', genresArr);
   const items = 20;
 
@@ -133,19 +134,21 @@ function App() {
                 page={page}
                 setPage={setPage}
                 setShowSearch={setShowSearch}
-                platformsArr={platformsArr}
-                setPlatformsArr={setPlatformsArr}
+                platformsSorted={platformsSorted}
+                setPlatformsSorted={setPlatformsSorted}
                 platforms={platforms}
                 setPlatforms={setPlatforms}
+                genresSorted={genresSorted}
+                setGenresSorted={setGenresSorted}
                 genres={genres}
                 setGenres={setGenres}
                 noImg={noImg}
-                genresArr={genresArr}
-                setGenresArr={setGenresArr}
+                ordering={ordering}
+                setOrdering={setOrdering}
               />
             }
           />
-
+          <Route path="/attributions" element={<Attributions />} />
           <Route
             path="/game/:id"
             element={

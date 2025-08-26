@@ -177,12 +177,9 @@
                 text-align: justify;
                 overflow: hidden;
 
-                // & p {
-                //   overflow: hidden;
-                //   white-space: nowrap;
-                //   text-overflow: ellipsis;
-                //   height: 100px;
-                // }
+                & p {
+                  font-size: 13px
+                }
               }
             }
           }

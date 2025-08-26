@@ -64,17 +64,6 @@ const Game = ({
     }
   }, [isLoading]);
 
-  // useEffect(() => {
-  //   if (fav && Array.isArray(fav)) {
-  //     console.log("%cData inside useEffect on GamePage:", "color: red", data);
-  //     console.log("fav inside useEffect on GamePage:", fav);
-  //     const inFavorite = fav.some((favArticle) => favArticle.id === data.id);
-  //     if (inFavorite) {
-  //       setIsFavorite(inFavorite);
-  //     }
-  //   }
-  // }, [fav]);
-
   return isLoading ? (
     <Loading />
   ) : (
@@ -153,19 +142,6 @@ const Game = ({
                     <p>Saved to collection</p>
                     <FontAwesomeIcon icon={icon1} className="iconFav" />
                   </button>
-                  {/* Test Cookie */}
-                  {/* <button onClick={() => {
-                    const test1 = "blabla"
-                    const test2 = {
-                      message: "blabla",
-                      number: 123,
-                      url: "https://www.google.com/search?q=gymnastique+artistique+jeux+olympiques&oi=ddle&ct=335645768&hl=fr&source=doodle-ntp&ved=0ahUKEwjQ3sO3_8uHAxVaTKQEHTcxD-oQPQgB"
-                    }
-                    const strTest2 = JSON.stringify(test2);
-                    console.log('strTest2:', strTest2);
-                    Cookies.set('test2', strTest2, { expires: 15, secure: true })
-                  }}>add a cookie</button> */}
-                  {/* <Button classButton="collec" buttonText="Saved to collection" icon={icon1} classIcon="iconFav" fav={fav} setFav={setFav} /> */}
                   <Button
                     classButton="review"
                     buttonText="Add a review"
@@ -181,7 +157,7 @@ const Game = ({
                         <h3>Platforms</h3>
                         <div className="boxDetails">
                           {data.platforms.map((platform, key = uuidv4()) => {
-                            // console.log("platform:", platform);
+                            console.log("platform in /game/:id:", platform);
                             return (
                               <Fragment key={key}>
                                 <div>{platform.platform.name}</div>

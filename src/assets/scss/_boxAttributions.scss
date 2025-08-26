@@ -1,0 +1,8 @@
+.boxAttributions {
+  @include flexColCenter;
+
+  .boxArtistCard {
+    @include flexBetween;
+    width: 100%;
+  }
+}

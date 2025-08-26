@@ -13,6 +13,7 @@ import Links from "./Links";
 import Button from "./Button";
 
 const Header = ({
+  count,
   showSignup,
   setShowSignup,
   showLogin,
@@ -34,9 +35,9 @@ const Header = ({
   dimWindows,
   setDimWindows,
 }) => {
-  console.log("%cToken:", "color: orangered", token);
-  console.log("%cDimWindows:", "color: red", dimWindows);
-  console.log("%cImgControlFour:", "color: red", controlFour);
+  // console.log("%cToken in header:", "color: orangered", token);
+  // console.log("%cDimWindows in header:", "color: red", dimWindows);
+  // console.log("%cImgControlFour in header:", "color: red", controlFour);
   const handleShowSignup = () => {
     showSignup === false ? setShowSignup(true) : setShowSignup(false);
   };
@@ -91,7 +92,11 @@ const Header = ({
           {showSearch && (
             <div className="boxSearch">
               <FontAwesomeIcon icon={icon1} />
-              <Input setState={setSearch} state={search} />
+              <Input
+                setState={setSearch}
+                state={search}
+                placeholder={`Search ${count} games`}
+              />
             </div>
           )}
           <ul>

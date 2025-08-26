@@ -1,8 +1,4 @@
 main {
-  .boxDisplayCount {
-    padding-top: 15px;
-    @include flexCenter;
-  }
 
   .boxSearchFilters {
     @include flexColCenter;
@@ -11,46 +7,46 @@ main {
     .boxSearch {
       @include flexColCenter;
     }
+  }
 
-    .boxFilters {
-      @include flexBetween;
-      width: 100%;
-      padding-top: 15px;
+  .boxFilters {
+    @include flexBetween;
+    width: 100%;
+    padding-top: 15px;
 
-      .boxFiltersPlatformType {
+    .boxFiltersPlatformType {
+      @include flexCenter;
+      gap: 10px;
+      padding-left: 10px;
+
+      .filterPlatform,
+      .filterType {
         @include flexCenter;
-        gap: 10px;
-        padding-left: 10px;
+        gap: 5px;
+        background-color: rgb(64, 64, 64);
+        padding: 5px;
+        border-radius: 5px;
+      }
+    }
 
-        .filterPlatform,
-        .filterType {
-          @include flexCenter;
-          gap: 5px;
-          background-color: rgb(64, 64, 64);
-          padding: 5px;
-          border-radius: 5px;
-        }
+    .boxSortSubmit {
+      @include flexCenter;
+      margin-right: 10px;
+      gap: 5px;
+
+      .filterSort {
+        @include flexCenter;
+        background-color: rgb(64, 64, 64);
+        padding: 5px;
+        border-radius: 5px;
+        gap: 5px;
       }
 
-      .boxSortSubmit {
-        @include flexCenter;
-        margin-right: 10px;
-        gap: 5px;
-
-        .filterSort {
-          @include flexCenter;
-          background-color: rgb(64, 64, 64);
-          padding: 5px;
-          border-radius: 5px;
-          gap: 5px;
-        }
-
-        button {
-          background-color: $lineRed;
-          color: $text;
-          padding: 5px;
-          border-radius: 5px;
-        }
+      button {
+        background-color: $lineRed;
+        color: $text;
+        padding: 5px;
+        border-radius: 5px;
       }
     }
   }

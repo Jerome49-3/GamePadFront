@@ -5,8 +5,8 @@ import chevronRight from "/images/right-chevron_8563331.png";
 import { v4 as uuidv4 } from "uuid";
 
 const Pagination = ({ count, items, page, setPage }) => {
-  console.log("count:", count);
-  console.log("page top:", page);
+  // console.log("count:", count);
+  // console.log("page top:", page);
   // initialisation d'un tableau vide
   const pageActive = [];
   // console.log('pageActive:', pageActive);

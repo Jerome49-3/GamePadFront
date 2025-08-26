@@ -75,6 +75,7 @@ const Login = ({
                 placeholder="email@test.com"
                 value={email}
                 setState={setEmail}
+                setErrorMessage={setErrorMessage}
               />
               <Input
                 id="password"
@@ -82,6 +83,7 @@ const Login = ({
                 placeholder="password"
                 value={password}
                 setState={setPassword}
+                setErrorMessage={setErrorMessage}
               />
               <EyePassword
                 icon1={icon1}
